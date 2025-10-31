@@ -148,15 +148,12 @@ function FlashcardsView({ cards }) {
       </div>
       <button
         onClick={() => setFlipped((f) => !f)}
-        className="mt-3 w-full aspect-[3/2] perspective rounded-xl bg-gradient-to-br from-indigo-50 via-white to-teal-50 dark:from-indigo-950 dark:via-slate-900 dark:to-teal-950 ring-1 ring-black/10 dark:ring-white/10 flex items-center justify-center"
+        className="mt-3 w-full aspect-[3/2] rounded-xl bg-gradient-to-br from-indigo-50 via-white to-teal-50 dark:from-indigo-950 dark:via-slate-900 dark:to-teal-950 ring-1 ring-black/10 dark:ring-white/10 flex items-center justify-center"
         aria-label={flipped ? 'Show question' : 'Show answer'}
       >
-        <div className={`transition-transform duration-500 [transform-style:preserve-3d] ${flipped ? 'rotate-y-180' : ''} w-full h-full flex items-center justify-center p-6`}> 
-          <div className="absolute backface-hidden text-center text-gray-900 dark:text-white text-base sm:text-lg font-medium">
-            {current.front}
-          </div>
-          <div className="absolute backface-hidden rotate-y-180 text-center text-gray-900 dark:text-white text-sm sm:text-base">
-            {current.back}
+        <div className="w-full h-full flex items-center justify-center p-6 text-center">
+          <div className="text-gray-900 dark:text-white text-base sm:text-lg font-medium">
+            {flipped ? current.back : current.front}
           </div>
         </div>
       </button>
